@@ -1,9 +1,6 @@
-import sys
-input = sys.stdin.readline
+# 현지 :: rjust, ljust, center
 
-t = int(input())
-
-for i in range(1,t+1):
-  print(" "*(t-i),end='*'*i)
-  if i!=t:
-    print()
+n = int(input())
+for i in range(1, n+1):
+    star = i * '*'
+    print(star.rjust(n))
