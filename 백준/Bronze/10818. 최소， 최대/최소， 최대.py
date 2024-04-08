@@ -13,4 +13,4 @@ for i in l:
   elif i < l_min:
     l_min = i
 
-print(f"{l_min} {l_max}")
+print(l_min, l_max)
