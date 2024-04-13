@@ -2,15 +2,11 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int,input().split())
-arr = [i for i in range(n)]
-
+arr = list(range(1,n+1))
 
 for _ in range(m):
   i, j = map(int, input().split())
+  arr[i-1:j] = reversed(arr[i-1:j])
 
-  tmp = arr[i-1:j]
-  tmp.reverse()
-  arr[i-1:j] = tmp
 
-for a in arr:
-  print(a+1, end = ' ')
+print(*arr)
