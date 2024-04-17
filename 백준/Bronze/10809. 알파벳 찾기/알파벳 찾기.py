@@ -1,10 +1,11 @@
-s = input()
+# 알파벳 문자열 만들고 문자열에 있으면 인덱스로 접근해서 출력
+s = list(input())
+alphabets = 'abcdefghijklmnopqrstuvwxyz'
 
-ans_list = [-1] * 26
+for i in alphabets :
+  if i in s:
+    print(s.index(i), end=' ')
 
-for i in range(len(s)):
-  pos = ord(s[i]) - 97
-  if ans_list[pos] == -1:
-    ans_list[pos] = i
+  else:
+    print(-1, end=' ')
 
-print(*ans_list)
