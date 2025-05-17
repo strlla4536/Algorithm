@@ -1,21 +1,21 @@
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
-        start = 0
+        start, end = 0, 0
         ans = []
-        for end in range(len(nums)):
-            if end < len(nums)-1:
-                if nums[end]+1 == nums[end+1]:
-                    pass
-                else : 
-                    ans.append([nums[start], nums[end]])
-                    start = end + 1
-            elif end == len(nums)-1:
-                ans.append([nums[start], nums[end]])
         
-        for i in range(len(ans)):
-            if ans[i][0] == ans[i][1]:
-                ans[i] = str(ans[i][0])
+        while start < len(nums) and end < len(nums):
+
+            if (end+1) < len(nums) and nums[end]+1 == nums[end+1]:
+                end += 1
             else:
-                ans[i] = str(f"{ans[i][0]}->{ans[i][1]}")
+                if nums[start] == nums[end]:
+                    ans.append(str(nums[start]))
+                    start += 1
+                    end += 1
+                else:
+                    ans.append(str(nums[start]) + '->' + str(nums[end]))
+                    end += 1
+                    start = end
+
         
         return ans
